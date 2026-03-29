@@ -1,5 +1,5 @@
 <!-- Profile image -->
-<img src="images/profile.jpg" class="profile">
+<img src="images/profile.jpeg" class="profile">
 
 <!-- Certificates -->
 <img src="images/Html_certificate7.jpeg" onclick="openModal(this.src)">
