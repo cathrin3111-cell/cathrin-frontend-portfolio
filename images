@@ -1,0 +1,11 @@
+<!-- Profile image -->
+<img src="images/profile.jpg" class="profile">
+
+<!-- Certificates -->
+<img src="images/Html_certificate7.jpeg" onclick="openModal(this.src)">
+<img src="images/Aws_certificate3.jpeg" onclick="openModal(this.src)">
+<img src="images/CSS_certificate5.jpeg" onclick="openModal(this.src)">
+<img src="images/Javascript_certificate6.jpeg" onclick="openModal(this.src)">
+<img src="images/Frontendweb_certificate2.jpeg" onclick="openModal(this.src)">
+<img src="images/NodesJs_certificate4.jpeg" onclick="openModal(this.src)">
+<img src="images/Gitandgithub_certificate1.jpeg" onclick="openModal(this.src)">
