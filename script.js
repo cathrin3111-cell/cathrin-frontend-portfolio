@@ -1,47 +1,31 @@
-function showPage(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(page).classList.add('active');
-}
-
-// Typing Effect
-const text = "Aspiring Tech Enthusiast | Cloud & Web Developer";
-let i = 0;
-function typeEffect() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeEffect, 50);
-  }
-}
-typeEffect();
-
-// Modal
-function openModal(src) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modalImg").src = src;
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-// Feedback
 document.getElementById("feedbackForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
+  const nameValue = document.getElementById("name").value;
+  const emailValue = document.getElementById("email").value;
+  const messageValue = document.getElementById("message").value;
+
   try {
-    await fetch("https://your-backend-url.onrender.com/feedback", {
+    const response = await fetch("https://cath-backend.onrender.com", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        message: message.value
+        name: nameValue,
+        message: messageValue
       })
     });
 
-    alert("Feedback sent!");
-  } catch {
+    if (response.ok) {
+      alert("Feedback sent successfully!");
+      document.getElementById("feedbackForm").reset();
+    } else {
+      alert("Failed to send feedback");
+    }
+
+  } catch (error) {
+    console.log("Error:", error);
     alert("Error connecting to server");
   }
 });
