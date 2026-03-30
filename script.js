@@ -2,6 +2,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
   e.preventDefault();
 
   const nameValue = document.getElementById("name").value;
+  const emailValue = document.getElementById("email").value;
   const messageValue = document.getElementById("message").value;
 
   try {
@@ -12,6 +13,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
       },
       body: JSON.stringify({
         name: nameValue,
+        email:emailValue,
         message: messageValue
       })
     });
