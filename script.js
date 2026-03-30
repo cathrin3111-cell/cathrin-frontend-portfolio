@@ -2,11 +2,10 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
   e.preventDefault();
 
   const nameValue = document.getElementById("name").value;
-  const emailValue = document.getElementById("email").value;
   const messageValue = document.getElementById("message").value;
 
   try {
-    const response = await fetch("https://cath-backend.onrender.com", {
+    const response = await fetch("https://cath-backend.onrender.com/feedback", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -17,12 +16,10 @@ document.getElementById("feedbackForm").addEventListener("submit", async functio
       })
     });
 
-    if (response.ok) {
-      alert("Feedback sent successfully!");
-      document.getElementById("feedbackForm").reset();
-    } else {
-      alert("Failed to send feedback");
-    }
+    const data = await response.text();
+    alert(data);
+
+    document.getElementById("feedbackForm").reset();
 
   } catch (error) {
     console.log("Error:", error);
